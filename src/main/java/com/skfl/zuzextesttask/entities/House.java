@@ -9,8 +9,8 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 public class House {
     @Id
