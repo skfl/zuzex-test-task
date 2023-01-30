@@ -6,8 +6,8 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 public class Car {
     @Id
