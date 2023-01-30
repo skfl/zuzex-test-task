@@ -58,6 +58,19 @@
             <version>1.5.3.Final</version>
         </dependency>
 
+        <!--h2-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+        <!-- Spring Web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.0.4</version>
+        </dependency>
+
 
 
     </dependencies>
