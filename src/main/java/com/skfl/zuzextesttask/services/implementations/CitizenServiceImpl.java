@@ -21,7 +21,6 @@ public class CitizenServiceImpl implements CitizenService {
     private final CitizenRepository citizenRepository;
     private final PassportService passportService;
 
-
     @Override
     @Transactional
     public CitizenDTO createCitizenWithPassport(CitizenDTO citizenDTO) {

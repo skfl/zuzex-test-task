@@ -2,6 +2,7 @@ package com.skfl.zuzextesttask.exceptions;
 
 import com.skfl.zuzextesttask.exceptions.custom.CarNotFoundException;
 import com.skfl.zuzextesttask.exceptions.custom.CitizenNotFoundException;
+import com.skfl.zuzextesttask.exceptions.custom.HouseNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApplicationError> catchCarNotFoundException(CarNotFoundException e) {
         log.error(e.getMessage(), e);
         return new ResponseEntity<>(new ApplicationError(HttpStatus.NOT_FOUND.value(), "No such car found")
+                , HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ApplicationError> catchHouseNotFoundException(HouseNotFoundException e) {
+        log.error(e.getMessage(), e);
+        return new ResponseEntity<>(new ApplicationError(HttpStatus.NOT_FOUND.value(), "No such house found")
                 , HttpStatus.NOT_FOUND);
     }
 }
