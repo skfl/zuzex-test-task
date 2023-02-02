@@ -3,8 +3,7 @@ package com.skfl.zuzextesttask.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -19,5 +18,7 @@ public class Car {
 
     @ManyToOne
     @JoinColumn(name = "citizen_id", nullable = false)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Citizen citizen;
 }
