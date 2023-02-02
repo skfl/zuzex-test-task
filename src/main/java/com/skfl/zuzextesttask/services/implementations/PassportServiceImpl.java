@@ -7,7 +7,6 @@ import com.skfl.zuzextesttask.mappers.CitizenMapper;
 import com.skfl.zuzextesttask.mappers.PassportMapper;
 import com.skfl.zuzextesttask.repositories.PassportRepository;
 import com.skfl.zuzextesttask.services.PassportService;
-import com.skfl.zuzextesttask.utils.PassportUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 public class PassportServiceImpl implements PassportService {
     private final PassportRepository passportRepository;
+    private final PassportSerialNumberService serialNumberService;
 
     @Override
     public PassportDTO createPassport(CitizenDTO citizenDTO) {
         Passport newPassport = Passport.builder()
-                .serialNumber(PassportUtils.generatePassportSerialNumber())
+                .serialNumber(serialNumberService.getUniquePassportSerialNumber())
                 .citizen(CitizenMapper.INSTANCE.toEntity(citizenDTO))
                 .build();
         Passport addedPassport = passportRepository.save(newPassport);

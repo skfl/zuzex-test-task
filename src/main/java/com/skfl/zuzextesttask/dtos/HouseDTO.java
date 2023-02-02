@@ -11,5 +11,4 @@ import lombok.*;
 public class HouseDTO {
     private String streetName;
     private String houseNumber;
-    private Integer apartmentsNumber;
 }

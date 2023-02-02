@@ -24,7 +24,7 @@ public class CarController {
 
     @PutMapping("{id}")
     public CarDTO updateCar(@RequestBody CarDTO carDTO, @PathVariable("id") Long id) {
-        return carService.updateCarById(carDTO, id);
+        return carService.updateCar(carDTO, id);
     }
 
     @DeleteMapping("{id}")

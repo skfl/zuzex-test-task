@@ -28,7 +28,7 @@ public class CitizenController {
 
     @PutMapping("{citizen-id}")
     public CitizenDTO updateCitizen(@RequestBody CitizenDTO citizenDTO, @PathVariable("citizen-id") Long citizenId) {
-        return citizenService.updateCitizenById(citizenDTO, citizenId);
+        return citizenService.updateCitizen(citizenDTO, citizenId);
     }
 
 

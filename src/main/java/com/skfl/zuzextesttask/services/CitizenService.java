@@ -7,7 +7,7 @@ public interface CitizenService {
 
     CitizenDTO readCitizenById(Long id);
 
-    CitizenDTO updateCitizenById(CitizenDTO citizenDTO, Long id);
+    CitizenDTO updateCitizen(CitizenDTO citizenDTO, Long id);
 
     void deleteCitizenById(Long id);
 }

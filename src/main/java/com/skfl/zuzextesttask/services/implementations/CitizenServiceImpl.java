@@ -46,7 +46,7 @@ public class CitizenServiceImpl implements CitizenService {
 
     @Override
     @Transactional
-    public CitizenDTO updateCitizenById(CitizenDTO citizenDTO, Long citizenId) {
+    public CitizenDTO updateCitizen(CitizenDTO citizenDTO, Long citizenId) {
         Optional<Citizen> citizenToUpdate = citizenRepository.findById(citizenId);
 
         if (citizenToUpdate.isEmpty()) {

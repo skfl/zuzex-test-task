@@ -7,7 +7,7 @@ public interface CarService {
 
     CarDTO readCarById(Long carId);
 
-    CarDTO updateCarById(CarDTO carDTO, Long carId);
+    CarDTO updateCar(CarDTO carDTO, Long carId);
 
     void deleteCarById(Long carId);
 }
