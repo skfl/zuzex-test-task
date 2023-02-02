@@ -15,7 +15,8 @@ public class Passport {
     private Long id;
     private String serialNumber;
 
-    @OneToOne(mappedBy = "passport")
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "citizen_id", referencedColumnName = "id")
     private Citizen citizen;
 
 }
