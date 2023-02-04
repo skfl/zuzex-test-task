@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface CitizenMapper {
-    CitizenMapper INSTANCE = Mappers.getMapper(CitizenMapper.class);
+    CitizenCustomMapper INSTANCE = Mappers.getMapper(CitizenCustomMapper.class);
 
     CitizenDTO toDTO(Citizen citizen);
 

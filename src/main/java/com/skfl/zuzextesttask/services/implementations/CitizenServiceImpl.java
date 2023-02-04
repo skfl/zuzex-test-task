@@ -59,6 +59,7 @@ public class CitizenServiceImpl implements CitizenService {
         citizenTemplate.setSecondName(citizenDTO.getSecondName());
 
         return CitizenMapper.INSTANCE.toDTO(citizenRepository.save(citizenToUpdate.get()));
+//        return null;
     }
 
     @Override

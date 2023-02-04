@@ -24,5 +24,7 @@ public class CitizenDTO {
     @Max(value = 130, message = "Incorrect age")
     private Integer age;
     private CitizenSex sex;
-    private Set<Long> carIds;
+    private Set<CarDTO> cars;
+    private Set<HouseDTO> houses;
+    private PassportDTO passport;
 }

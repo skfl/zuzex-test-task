@@ -16,5 +16,6 @@ public class CarDTO {
     @NotBlank(message = "Car model name couldn't be blank")
     private String modelName;
     private String licensePlateNumber;
+    //    @JsonInclude(JsonInclude.Include.NON_NULL) todo:Include.CUSTOM with content filter
     private Long citizenId;
 }

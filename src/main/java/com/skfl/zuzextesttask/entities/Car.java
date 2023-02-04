@@ -23,5 +23,6 @@ public class Car {
     @JoinColumn(name = "citizen_id", nullable = false)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+
     private Citizen citizen;
 }
