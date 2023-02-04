@@ -47,7 +47,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public CarDTO updateCarById(CarDTO carDTO, Long id) {
+    public CarDTO updateCar(CarDTO carDTO, Long id) {
         Optional<Car> carToUpdate = carRepository.findById(id);
 
         if (carToUpdate.isEmpty()) {
