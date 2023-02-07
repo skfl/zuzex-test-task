@@ -24,7 +24,7 @@ public class PassportServiceImpl implements PassportService {
                 .citizen(CitizenMapper.INSTANCE.toEntity(citizenDTO))
                 .build();
         Passport addedPassport = passportRepository.save(newPassport);
-        return PassportMapper.INSTANCE.toDto(addedPassport);
+        return PassportMapper.INSTANCE.toDTO(addedPassport);
     }
 
     @Override

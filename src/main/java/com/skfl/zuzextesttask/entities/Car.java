@@ -9,6 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@NamedQuery(name="findCarsByCitizen",
+query = "from Car where citizen.id =: citizenId")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

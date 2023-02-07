@@ -9,5 +9,7 @@ import lombok.*;
 @Builder
 @ToString
 public class PassportDTO {
+    private Long id;
     private String serialNumber;
+    private Long citizenId;
 }

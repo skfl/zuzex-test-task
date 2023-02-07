@@ -33,7 +33,9 @@ public class Citizen {
     @OneToOne(mappedBy = "citizen")
     private Passport passport;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+
+//    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,org.hibernate.annotations.CascadeType.MERGE,org.hibernate.annotations.CascadeType.PERSIST})
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(name = "citizen_house",
             joinColumns = {@JoinColumn(name = "citizen_id")},
             inverseJoinColumns = {@JoinColumn(name = "house_id")})

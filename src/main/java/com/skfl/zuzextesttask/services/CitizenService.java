@@ -10,4 +10,6 @@ public interface CitizenService {
     CitizenDTO updateCitizen(CitizenDTO citizenDTO, Long id);
 
     void deleteCitizenById(Long id);
+
+    CitizenDTO getIfExist(CitizenDTO citizenDTO);
 }

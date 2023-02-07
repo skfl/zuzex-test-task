@@ -5,6 +5,7 @@ import com.skfl.zuzextesttask.services.CarService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,8 @@ public class CarController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteCar(@PathVariable("id") @Min(0) Long id) {
+    public ResponseEntity deleteCar(@PathVariable("id") @Min(0) Long id) {
         carService.deleteCarById(id);
+        return ResponseEntity.ok().build();
     }
 }

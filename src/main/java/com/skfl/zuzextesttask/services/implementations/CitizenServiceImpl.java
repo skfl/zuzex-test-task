@@ -8,7 +8,6 @@ import com.skfl.zuzextesttask.repositories.CitizenRepository;
 import com.skfl.zuzextesttask.services.CitizenService;
 import com.skfl.zuzextesttask.services.PassportService;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +23,10 @@ public class CitizenServiceImpl implements CitizenService {
     @Override
     @Transactional
     public CitizenDTO createCitizenWithPassport(CitizenDTO citizenDTO) {
+        CitizenDTO foundCitizen = getIfExist(citizenDTO);
+        if (foundCitizen != null) {
+            return foundCitizen;
+        }
         Citizen citizenToAdd = Citizen.builder()
                 .age(citizenDTO.getAge())
                 .firstName(citizenDTO.getFirstName())
@@ -59,18 +62,19 @@ public class CitizenServiceImpl implements CitizenService {
         citizenTemplate.setSecondName(citizenDTO.getSecondName());
 
         return CitizenMapper.INSTANCE.toDTO(citizenRepository.save(citizenToUpdate.get()));
-//        return null;
     }
 
     @Override
     @Transactional
     public void deleteCitizenById(Long citizenId) {
-        try {
-            passportService.deletePassportByCitizenId(citizenId);
-            citizenRepository.deleteById(citizenId);
-        } catch (EmptyResultDataAccessException e) {
-            throw new CitizenNotFoundException("There is no citizen with such id");
-        }
+        passportService.deletePassportByCitizenId(citizenId);
+        citizenRepository.deleteById(citizenId);
+    }
 
+    @Override
+    public CitizenDTO getIfExist(CitizenDTO citizenDTO) {
+        Optional<Citizen> foundCitizen = citizenRepository.findByFirstNameAndSecondNameAndAgeAndSex(citizenDTO.getFirstName(), citizenDTO.getSecondName(),
+                citizenDTO.getAge(), citizenDTO.getSex());
+        return foundCitizen.map(CitizenMapper.INSTANCE::toDTO).orElse(null);
     }
 }

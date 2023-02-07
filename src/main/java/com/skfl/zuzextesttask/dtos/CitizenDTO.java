@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -24,7 +25,7 @@ public class CitizenDTO {
     @Max(value = 130, message = "Incorrect age")
     private Integer age;
     private CitizenSex sex;
-    private Set<CarDTO> cars;
-    private Set<HouseDTO> houses;
+    private Set<CarDTO> cars = new HashSet<>();
+    private Set<HouseDTO> houses = new HashSet<>();
     private PassportDTO passport;
 }

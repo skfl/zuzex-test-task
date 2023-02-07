@@ -10,7 +10,6 @@ import com.skfl.zuzextesttask.repositories.CarRepository;
 import com.skfl.zuzextesttask.services.CarService;
 import com.skfl.zuzextesttask.services.CitizenService;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,7 +58,8 @@ public class CarServiceImpl implements CarService {
 
         carTemplate.setBrand(carDTO.getBrand());
         carTemplate.setModelName(carDTO.getModelName());
-        carTemplate.setLicensePlateNumber(carDTO.getLicensePlateNumber());
+        carTemplate.setLicensePlateNumber(carToUpdate.get().getLicensePlateNumber());
+        carTemplate.setCitizen(CitizenMapper.INSTANCE.toEntity(citizenService.readCitizenById(carDTO.getCitizenId())));
 
         return CarMapper.INSTANCE.toDTO(carRepository.save(carTemplate));
     }
@@ -67,10 +67,6 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional
     public void deleteCarById(Long id) {
-        try {
-            carRepository.deleteById(id);
-        } catch (EmptyResultDataAccessException e) {
-            throw new CarNotFoundException("There is no car with such id");
-        }
+        carRepository.deleteById(id);
     }
 }

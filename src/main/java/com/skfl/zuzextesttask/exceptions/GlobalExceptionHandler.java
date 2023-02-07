@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<ApplicationError> catchValidationException(ValidationException e) {
         log.error(e.getMessage(), e);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApplicationError(HttpStatus.NOT_FOUND.value(), e.getMessage()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApplicationError(HttpStatus.BAD_REQUEST.value(), e.getMessage()));
     }
 
     @ExceptionHandler
