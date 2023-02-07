@@ -22,9 +22,7 @@ public class House {
     @Min(value = 1, message = "House number couldn't be zero")
     private Integer houseNumber;
 
-
-//    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.MERGE, org.hibernate.annotations.CascadeType.PERSIST})
-    @ManyToMany(mappedBy = "houses",cascade = {CascadeType.MERGE})
+    @ManyToMany(mappedBy = "houses", cascade = {CascadeType.MERGE})
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Citizen> citizens = new HashSet<>();

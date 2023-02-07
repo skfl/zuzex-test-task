@@ -10,5 +10,4 @@ public interface HouseService {
     HouseDTO updateHouse(HouseDTO houseDTO, Long id);
 
     void deleteHouseById(Long id);
-
 }

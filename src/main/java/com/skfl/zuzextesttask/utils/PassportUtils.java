@@ -3,6 +3,7 @@ package com.skfl.zuzextesttask.utils;
 import lombok.experimental.UtilityClass;
 
 import java.util.Random;
+
 @UtilityClass
 public class PassportUtils {
     public static String generatePassportSerialNumber() {

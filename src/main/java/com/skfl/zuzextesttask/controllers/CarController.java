@@ -1,6 +1,7 @@
 package com.skfl.zuzextesttask.controllers;
 
 import com.skfl.zuzextesttask.dtos.CarDTO;
+import com.skfl.zuzextesttask.dtos.response.DeleteResponse;
 import com.skfl.zuzextesttask.services.CarService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
@@ -33,8 +34,9 @@ public class CarController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity deleteCar(@PathVariable("id") @Min(0) Long id) {
+    public ResponseEntity<?> deleteCar(@PathVariable("id") @Min(0) Long id) {
         carService.deleteCarById(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok()
+                .body(DeleteResponse.builder().message("Car successfully deleted").build());
     }
 }

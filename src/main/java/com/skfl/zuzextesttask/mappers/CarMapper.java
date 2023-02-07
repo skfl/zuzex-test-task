@@ -10,7 +10,7 @@ import org.mapstruct.factory.Mappers;
 public interface CarMapper {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-    @Mapping(target = "citizenId",source = "car.citizen.id")
+    @Mapping(target = "citizenId", source = "car.citizen.id")
     CarDTO toDTO(Car car);
 
     Car toEntity(CarDTO dto);

@@ -10,7 +10,7 @@ import org.mapstruct.factory.Mappers;
 public interface PassportMapper {
     PassportMapper INSTANCE = Mappers.getMapper(PassportMapper.class);
 
-    @Mapping(target = "citizenId",source = "passport.citizen.id")
+    @Mapping(target = "citizenId", source = "passport.citizen.id")
     PassportDTO toDTO(Passport passport);
 
     Passport toEntity(PassportDTO dto);

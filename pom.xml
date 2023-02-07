@@ -38,12 +38,6 @@
             <version>1.5.3.Final</version>
         </dependency>
 
-        <!--h2 db-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.h2database</groupId>-->
-        <!--            <artifactId>h2</artifactId>-->
-        <!--        </dependency>-->
-
         <!--Postgres-->
         <dependency>
             <groupId>org.postgresql</groupId>

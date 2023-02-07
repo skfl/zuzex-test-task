@@ -1,10 +1,12 @@
 package com.skfl.zuzextesttask.controllers;
 
 import com.skfl.zuzextesttask.dtos.HouseDTO;
+import com.skfl.zuzextesttask.dtos.response.DeleteResponse;
 import com.skfl.zuzextesttask.services.HouseService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +34,9 @@ public class HouseController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteHouse(@PathVariable("id") @Min(0) Long id) {
+    public ResponseEntity<?> deleteHouse(@PathVariable("id") @Min(0) Long id) {
         houseService.deleteHouseById(id);
+        return ResponseEntity.ok()
+                .body(DeleteResponse.builder().message("House successfully deleted").build());
     }
 }
