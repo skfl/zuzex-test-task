@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class CitizenServiceImpl implements CitizenService {
-
     private final CitizenRepository citizenRepository;
     private final PassportService passportService;
 

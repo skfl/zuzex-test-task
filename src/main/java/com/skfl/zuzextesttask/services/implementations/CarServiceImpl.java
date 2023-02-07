@@ -53,7 +53,6 @@ public class CarServiceImpl implements CarService {
             throw new CarNotFoundException("There is no car with such id");
         }
 
-
         Car carTemplate = carToUpdate.get();
 
         carTemplate.setBrand(carDTO.getBrand());
